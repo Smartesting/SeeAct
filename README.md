@@ -50,9 +50,7 @@ This tool can be used for running web agent demos and evaluating their performan
 
 1. Create a conda environment and install dependency:
 ```bash
-conda create -n seeact python=3.10
-conda activate seeact
-pip install -r requirements.txt
+poetry install
 ```
 
 2. Set up PlayWright and install the browser kernels.
@@ -71,8 +69,8 @@ Note that the key is only stored locally and will NOT be shared anywhere.**
 In the demo mode, SeeAct takes `task` and `website` from user terminal input. Run SeeAct in demo mode with the following command:
 
 ```bash
-cd src
-python seeact.py
+poetry shell
+python src/seeact.py
 ```
 Demo mode will use the default configuration file at `src/config/demo_mode.toml`.
 
