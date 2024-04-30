@@ -127,7 +127,7 @@ async def main(config, base_dir) -> None:
     is_demo = config["basic"]["is_demo"]
     ranker_path = None
     try:
-        ranker_path = config["basic"]["ranker_path"]
+        ranker_path = config["experiment"]["ranker_path"]
         if not os.path.exists(ranker_path):
             ranker_path = None
     except:
@@ -189,6 +189,7 @@ async def main(config, base_dir) -> None:
     if ranker_path:
         ranking_model = CrossEncoder(ranker_path, device=torch.device("cuda" if torch.cuda.is_available() else "cpu"),
                                      num_labels=1, max_length=512, )
+        await aprint(f"Ranking model is set: {ranking_model}")
 
     if not is_demo:
         with open(f'{task_file_path}', 'r', encoding='utf-8') as file:
@@ -248,6 +249,9 @@ async def main(config, base_dir) -> None:
         logger.info(f"website: {confirmed_website_url}")
         logger.info(f"task: {confirmed_task}")
         logger.info(f"id: {task_id}")
+        logger.info(f"ranking_path: {ranker_path}")
+        logger.info(f"ranker: {ranking_model}")
+        logger.info(f"Top K: {top_k}")
         async with async_playwright() as playwright:
             session_control.browser = await normal_launch_async(playwright)
             session_control.context = await normal_new_context_async(session_control.browser,
@@ -351,12 +355,18 @@ async def main(config, base_dir) -> None:
                     continue
                 if ranker_path and len(elements) > top_k:
                     ranking_input = format_ranking_input(elements, confirmed_task, taken_actions)
+                    logger.info(f"query: {ranking_input[0][0]}")
+                    for query,doc in ranking_input:
+                       logger.info(f"element: {doc}")
                     logger.info("Start to rank")
                     pred_scores = ranking_model.predict(ranking_input, convert_to_numpy=True, show_progress_bar=False,
                                                         batch_size=100, )
                     topk_values, topk_indices = find_topk(pred_scores, k=min(top_k, len(elements)))
                     all_candidate_ids = list(topk_indices)
                     ranked_elements = [elements[i] for i in all_candidate_ids]
+                    await aprint("Ranking")
+                    for i,el in enumerate(ranked_elements):
+                        await aprint(f"{i+1}: {el}")
                 else:
 
                     all_candidate_ids = range(len(elements))
@@ -376,7 +386,7 @@ async def main(config, base_dir) -> None:
 
                 total_height = await session_control.active_page.evaluate('''() => {
                                                                 return Math.max(
-                                                                    document.documentElement.scrollHeight, 
+                                                                    document.documentElement.scrollHeight,
                                                                     document.body.scrollHeight,
                                                                     document.documentElement.clientHeight
                                                                 );
@@ -423,7 +433,7 @@ async def main(config, base_dir) -> None:
 
                     total_height = await session_control.active_page.evaluate('''() => {
                                                                     return Math.max(
-                                                                        document.documentElement.scrollHeight, 
+                                                                        document.documentElement.scrollHeight,
                                                                         document.body.scrollHeight,
                                                                         document.documentElement.clientHeight
                                                                     );

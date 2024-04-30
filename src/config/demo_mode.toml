@@ -1,8 +1,8 @@
 [basic]
 is_demo = true # Set to true for demo mode, prompting user input for tasks and URLs. False reads tasks from a JSON file.
 save_file_dir = "../online_results" # Directory to save the results of the program's operations.
-default_task ="Find pdf of paper \"GPT-4V(ision) is a Generalist Web Agent, if Grounded\" from arXiv" # Default task to perform.
-default_website = "https://www.google.com/" # Default website to start the task.
+default_task = "Simulate an all-risk insurance quote for a new diesel BMW M2 in Paris, with driver Aurelia Vaughan, born on 03/08/1990, post code 75653, and a bonus/malus of -48, and verify the annual premium is €4155.84."#"Find pdf of paper \"GPT-4V(ision) is a Generalist Web Agent, if Grounded\" from arXiv" # Default task to perform.
+default_website = "https://demo-simulator.herokuapp.com/"#"https://www.google.com/" # Default website to start the task.
 
 [experiment]
 task_file_path = "../data/online_tasks/sample_tasks.json" # Path to the JSON file with tasks (ignored if is_demo is true).
@@ -17,14 +17,14 @@ highlight = false # If true, highlights elements during processing. Included in 
 monitor = true # Monitors each step. Pausing after each operation for safety, recommended to be always true. You should always monitor agents' behavior even if is set as false.
 dev_mode=false # Developer mode toggle.
 # storage_state="" # Path to a saved cookie file, if any.
-# ranker_path = "../model/deberta-v3-base" # Path to the ranking model. Comment out to disable ranking and treat all elements as candidates.
+ranker_path = "" # "./model/MindAct_CandidateGeneration_deberta-v3-base" #"osunlp/MindAct_CandidateGeneration_deberta-v3-base" #"../model/deberta-v3-base" # Path to the ranking model. Comment out to disable ranking and treat all elements as candidates.
 # Pretrained model: https://huggingface.co/osunlp/MindAct_CandidateGeneration_deberta-v3-base
 
 [openai]
-api_key = "Your API Key Here" # OpenAI API key for GPT-4 access.
+api_key = "" # OpenAI API key for GPT-4 access.
 # You can find your API key at https://platform.openai.com/account/api-keys.
 rate_limit = -1 # Rate limit for API calls (-1 for no limit).
-model = "gpt-4-vision-preview" # Model name, indicating the use of GPT-4 with vision capabilities.
+model = "gpt-4-turbo" # Model name, indicating the use of GPT-4 with vision capabilities.
 temperature = 0 # Temperature setting for GPT's responses, controlling randomness.
 
 [oss_model]
