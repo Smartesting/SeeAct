@@ -16,7 +16,7 @@ max_continuous_no_op = 2 # Maximum number of consecutive ineffective operations 
 max_op = 20 # Maximum number of operations to attempt.
 highlight = true # If true, highlights elements during processing. Included in screenshots.
 monitor = false # Monitors each step. Pausing after each operation for safety, recommended to be always true. You should always monitor agents' behavior even if is set as false.
-dev_mode= true # Developer mode toggle.
+dev_mode= false # Developer mode toggle.
 # storage_state="" # Path to a saved cookie file, if any.
 # ranker_path = "../model/deberta-v3-base" # Path to the ranking model. Comment out to disable ranking and treat all elements as candidates.
 # Pretrained model: https://huggingface.co/osunlp/MindAct_CandidateGeneration_deberta-v3-base
