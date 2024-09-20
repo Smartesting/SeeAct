@@ -26,6 +26,7 @@ import logging
 import os
 import warnings
 from dataclasses import dataclass
+from dotenv import load_dotenv
 
 import toml
 import torch
@@ -45,6 +46,7 @@ from demo_utils.website_dict import website_dict
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 warnings.filterwarnings("ignore", category=UserWarning)
 
+EMPTY_API_KEY="Your API KEY Here"
 
 @dataclass
 class SessionControl:
@@ -121,6 +123,13 @@ async def page_on_open_handler(page):
     # print("active page: ",session_control.active_page)
     # print('-' * 10)
 
+def load_openai_api_key():
+    load_dotenv()
+    assert (
+            os.getenv("OPENAI_API_KEY") is not None and
+            os.getenv("OPENAI_API_KEY") != EMPTY_API_KEY
+    ), "must pass on the api_key or set OPENAI_API_KEY in the environment"
+    return os.getenv("OPENAI_API_KEY")
 
 async def main(config, base_dir) -> None:
     # basic settings
@@ -159,9 +168,11 @@ async def main(config, base_dir) -> None:
 
     # openai settings
     openai_config = config["openai"]
-    if openai_config["api_key"] == "Your API Key Here":
+    openai_api_key = load_openai_api_key()
+    if openai_api_key is None:
         raise Exception(
             f"Please set your GPT API key first. (in {os.path.join(base_dir, 'config', 'demo_mode.toml')} by default)")
+    openai_config["api_key"] = openai_api_key
 
     # playwright settings
     save_video = config["playwright"]["save_video"]
@@ -390,7 +401,7 @@ async def main(config, base_dir) -> None:
                 logger.info('-' * 10)
 
                 total_width = session_control.active_page.viewport_size["width"]
-                log_task = "You are asked to complete the following task: " + confirmed_task
+                log_task = "You are asked to complete the following test case:\n" + confirmed_task
                 logger.info(log_task)
                 previous_actions = taken_actions
 
@@ -455,7 +466,7 @@ async def main(config, base_dir) -> None:
                     query_count += 1
                     # Format prompts for LLM inference
                     prompt = generate_prompt(task=confirmed_task, previous=taken_actions, choices=choices,
-                                             experiment_split="SeeAct")
+                                             experiment_split="benchmark")
                     if dev_mode:
                         for prompt_i in prompt:
                             logger.info(prompt_i)

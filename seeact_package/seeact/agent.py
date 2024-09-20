@@ -150,6 +150,7 @@ class SeeActAgent:
         # for handler in self.logger.handlers:
         #     self.dev_logger.addHandler(handler)
 
+        print(f"config: {json.dumps(config, indent=4)}")
         self.engine = engine_factory(**self.config['openai'])
         self.taken_actions = []
         self.prompts = self._initialize_prompts()

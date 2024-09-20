@@ -2,7 +2,7 @@
 # Copyright (c) 2024 OSU Natural Language Processing Group
 #
 # Licensed under the OpenRAIL-S License;
-# you may not use this file except in compliance with the License.
+# you may not use self file except in compliance with the License.
 # You may obtain a copy of the License at
 #
 #     https://www.licenses.ai/ai-pubs-open-rails-vz1
@@ -14,15 +14,16 @@
 # limitations under the License.
 import os
 import time
+import json
 
 import backoff
-import openai
-from openai.error import (
+from openai import OpenAI
+
+from openai import (
     APIConnectionError,
     APIError,
+    InternalServerError,
     RateLimitError,
-    ServiceUnavailableError,
-    InvalidRequestError
 )
 
 import base64
@@ -77,6 +78,8 @@ class OpenaiEngine(Engine):
         self.request_interval = 0 if rate_limit == -1 else 60.0 / rate_limit
         self.next_avil_time = [0] * len(self.api_keys)
         self.current_key_idx = 0
+        self.client = OpenAI(api_key=self.api_keys[self.current_key_idx])
+        # self.client.set_api_key(self.api_keys[self.current_key_idx])
         Engine.__init__(self, **kwargs)
 
     def encode_image(self, image_path):
@@ -85,7 +88,7 @@ class OpenaiEngine(Engine):
 
     @backoff.on_exception(
         backoff.expo,
-        (APIError, RateLimitError, APIConnectionError, ServiceUnavailableError, InvalidRequestError),
+        (APIError, RateLimitError, APIConnectionError),
     )
     def generate(self, prompt: list = None, max_new_tokens=4096, temperature=None, model=None, image_path=None,
                  ouput__0=None, turn_number=0, **kwargs):
@@ -96,7 +99,7 @@ class OpenaiEngine(Engine):
                 and start_time < self.next_avil_time[self.current_key_idx]
         ):
             time.sleep(self.next_avil_time[self.current_key_idx] - start_time)
-        openai.api_key = self.api_keys[self.current_key_idx]
+        
         prompt0 = prompt[0]
         prompt1 = prompt[1]
         prompt2 = prompt[2]
@@ -112,14 +115,12 @@ class OpenaiEngine(Engine):
                                                                                                     "detail": "high"},
                                                                  }]},
             ]
-            response1 = openai.ChatCompletion.create(
-                model=model if model else self.model,
-                messages=prompt1_input,
-                max_tokens=max_new_tokens if max_new_tokens else 4096,
-                temperature=temperature if temperature else self.temperature,
-                **kwargs,
-            )
-            answer1 = [choice["message"]["content"] for choice in response1["choices"]][0]
+            response1 = self.client.chat.completions.create(model=model if model else self.model,
+            messages=prompt1_input,
+            max_tokens=max_new_tokens if max_new_tokens else 4096,
+            temperature=temperature if temperature else self.temperature,
+            **kwargs)
+            answer1 = response1.choices[0].message.content
 
             return answer1
         elif turn_number == 1:
@@ -132,14 +133,12 @@ class OpenaiEngine(Engine):
                                                                                                     "detail": "high"}, }]},
                 {"role": "assistant", "content": [{"type": "text", "text": f"\n\n{ouput__0}"}]},
                 {"role": "user", "content": [{"type": "text", "text": prompt2}]}, ]
-            response2 = openai.ChatCompletion.create(
-                model=model if model else self.model,
-                messages=prompt2_input,
-                max_tokens=max_new_tokens if max_new_tokens else 4096,
-                temperature=temperature if temperature else self.temperature,
-                **kwargs,
-            )
-            return [choice["message"]["content"] for choice in response2["choices"]][0]
+            response2 = self.client.chat.completions.create(model=model if model else self.model,
+            messages=prompt2_input,
+            max_tokens=max_new_tokens if max_new_tokens else 4096,
+            temperature=temperature if temperature else self.temperature,
+            **kwargs)
+            return response2.choices[0].message.content
 
 
 class OpenaiEngine_MindAct(Engine):
@@ -178,11 +177,12 @@ class OpenaiEngine_MindAct(Engine):
         self.request_interval = 0 if rate_limit == -1 else 60.0 / rate_limit
         self.next_avil_time = [0] * len(self.api_keys)
         self.current_key_idx = 0
+        self.client = OpenAI(api_key=self.api_keys[self.current_key_idx])
         Engine.__init__(self, **kwargs)
 
     @backoff.on_exception(
         backoff.expo,
-        (APIError, RateLimitError, APIConnectionError, ServiceUnavailableError),
+        (APIError, RateLimitError, APIConnectionError, InternalServerError),
     )
     def generate(self, prompt, max_new_tokens=50, temperature=0, model=None, **kwargs):
         self.current_key_idx = (self.current_key_idx + 1) % len(self.api_keys)
@@ -192,19 +192,17 @@ class OpenaiEngine_MindAct(Engine):
                 and start_time < self.next_avil_time[self.current_key_idx]
         ):
             time.sleep(self.next_avil_time[self.current_key_idx] - start_time)
-        openai.api_key = self.api_keys[self.current_key_idx]
+        
         if isinstance(prompt, str):
             # Assume one turn dialogue
             prompt = [
                 {"role": "user", "content": prompt},
             ]
-        response = openai.ChatCompletion.create(
-            model=model if model else self.model,
-            messages=prompt,
-            max_tokens=max_new_tokens,
-            temperature=temperature,
-            **kwargs,
-        )
+        response = self.client.chat.completions.create(model=model if model else self.model,
+        messages=prompt,
+        max_tokens=max_new_tokens,
+        temperature=temperature,
+        **kwargs)
         if self.request_interval > 0:
             self.next_avil_time[self.current_key_idx] = (
                     max(start_time, self.next_avil_time[self.current_key_idx])

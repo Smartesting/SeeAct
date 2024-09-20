@@ -1,3 +1,37 @@
+# ATA Benchmark
+
+## Setup
+
+1.  Create environment:
+```bash
+poetry install
+```
+
+2. Set up PlayWright and install the browser kernels.
+```bash
+playwright install
+```
+
+## Usage
+
+1.  Set your OpenAI API key in the environment variable `OPENAI_API_KEY` in .env file
+
+2.  Launch experiment on use case "Classifieds"
+```bash
+poetry shell
+python src/seeact.py -c config/benchmark_testing_classifieds.toml
+```
+
+
+
+
+
+
+
+
+
+
+
 [//]: # (# SeeAct <br> GPT-4V&#40;ision&#41; is a Generalist Web Agent, if Grounded)
 
 <h1 align="center">SeeAct <br> GPT-4V(ision) is a Generalist Web Agent, if Grounded</h1>
