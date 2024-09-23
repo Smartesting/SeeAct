@@ -1,0 +1,17 @@
+[
+  {
+    "confirmed_task": "1. Start on the Homepage: http://www.vtaas-benchmark.com:9980/  \nTest Assertions: The homepage is displayed with the search field and category dropdown visible. \n\n2. Select \"Books\" from the Category dropdown. \nTest Assertions: The Category dropdown is set to \"Books\". \n\n3. Click on the \"Search\" button. \nTest Assertions: The “Books” listing page is displayed. \n\n4. Enter \"Falls Church\" in the City field and Select \"Falls Church (Virginia)\" in the dropdown menu. \nTest Assertions: The city \"Falls Church\" is entered in the City filter field. \n\n5. Click on the \"Apply\" button \nTest Assertions: Only classified ads located in Falls Church appear. \n\n6. Check the \"Show only listings with pictures\" checkbox. \nTest Assertions: The \"Show only listings with pictures\" checkbox is selected. \n\n7. Click on the \"Apply\" button to filter results to only show listings with pictures. \nTest Assertions: All displayed listings include a thumbnail image. \n\n8. Clear all filters by removing the location, and unchecking the pictures checkbox. \nTest Assertions: All filters are cleared, and the search results are reset. \n\n9. Click on the \"Apply\" button \nTest Assertions: The Books listing is displayed with 1489 listings \n\n",
+    "website": "http://www.vtaas-benchmark.com:9980/",
+    "task_id": "classifieds_searchbylocationandapplypicturefilterthenclearallfilters"
+  },
+  {
+    "confirmed_task": "1. Renseigner l'adresse \"http://www.vtaas-benchmark.com:9980/\" \nTest Assertions: The OsClass home page appears with the Login icon \n\n2. Select \"Motorcycles\" from the search category drop-down menu, then launch the search. \nTest Assertions: The Motorcycles page appears with all ads in \"List\" view. \n\n3. Sort ads by ascending price \nTest Assertions: The display list is reorganized accordingly \n\n4. Click on \"Gallery\" display mode \nTest Assertions: The display list is reorganized accordingly \n\n5. Apply a filter with the word \"Harley \nTest Assertions: The display remains in \"Gallery\" mode and the number of ads decreases. \n\n6. Apply a filter with a minimum price of $10 higher than the first ad listed \nTest Assertions: The number of ads decreases and the first ad has a price greater than or equal to the filter applied. \n\n7. Sort ads by descending price \nTest Assertions: The display list is reorganized accordingly \n\n8. Apply a filter with a maximum price of $1000 lower than the first ad listed \nTest Assertions: The number of ads decreases and the first ad has a price less than or equal to the filter applied. \n\n9. Apply a filter on the city by entering \"Paris\" then choose \"Paris (Texas\") from the list. \nTest Assertions: A message indicating that no ad is compatible appears \n\n10. Remove city filter and restart search \nTest Assertions: The ad list reappears \n\n",
+    "website": "http://www.vtaas-benchmark.com:9980/",
+    "task_id": "classifieds_searchbydrop"
+  },
+  {
+    "confirmed_task": "1. Go to \"http://www.vtaas-benchmark.com:9980/\" \nTest Assertions: The OsClass home page appears \n\n2. Select the first ad in the top left-hand corner of the \"Latest listings\" category \nTest Assertions: The selected product appears with the same title and price. \n\n3. Click on \"Contact seller\". \nTest Assertions: A new page appears \n\n",
+    "website": "http://www.vtaas-benchmark.com:9980/",
+    "task_id": "classifieds_contactingtheseller"
+  }
+]
