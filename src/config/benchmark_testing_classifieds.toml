@@ -6,7 +6,7 @@ default_website = "" # Default website to start the task.
 crawler_mode = false
 
 [experiment]
-task_file_path = "../data/benchmark_testing/classifieds_testcases.json" # Path to the JSON file with tasks (ignored if is_demo is true).
+task_file_path = "../data/benchmark_testing/classifieds__passing__seeAct_testcases.json" # Path to the JSON file with tasks (ignored if is_demo is true).
 overwrite = false # Enable to overwrite existing results. Disable to skip tasks already saved in save_file_dir.
 top_k = 50  # Number of top element candidates to consider if a ranker is used.
 fixed_choice_batch_size = 17 # Fixed number of options for each multiple-choice question.

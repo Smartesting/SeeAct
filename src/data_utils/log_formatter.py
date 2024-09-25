@@ -1,5 +1,7 @@
 import re
 from datetime import datetime
+import glob
+from pathlib import Path
 
 
 def process_log(log_content):
@@ -78,17 +80,19 @@ def process_log(log_content):
     return "\n".join(output_lines)
 
 
-# Usage
-input_file = "benchmark_testing_results/classifieds/classifieds_tc2/classifieds_tc2.log"
-output_file = "output_log.txt"
+# Usage : Change to the right folder
+logfiles = glob.glob("benchmark_testing_results/classifieds/**/*.log", recursive=True)
 
-with open(input_file, "r") as file:
-    log_content = file.read()
+for logfile in logfiles:
+    f = Path(logfile)
 
-processed_log = process_log(log_content)
+    output_file = f"{f.parent}/{f.stem}_formated{f.suffix}"
 
-# Write the processed log to a new file
-with open(output_file, "w") as file:
-    file.write(processed_log)
+    with open(f, "r") as file:
+        log_content = file.read()
 
-# process_log(input_file, output_file)
+    processed_log = process_log(log_content)
+
+    # Write the processed log to a new file
+    with open(output_file, "w") as file:
+        file.write(processed_log)
