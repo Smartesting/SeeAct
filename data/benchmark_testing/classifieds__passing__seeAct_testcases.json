@@ -1,77 +1,77 @@
 [
   {
     "confirmed_task": "1. Start on the Homepage: http://www.vtaas-benchmark.com:9980/  \nTest Assertions: The homepage is displayed with the search field and category dropdown visible. \n\n2. Enter \"bike\" in the Keyword search field \nTest Assertions: The keyword \"bike\" is entered in the search field. \n\n3. Click on the \"Search\" button. \nTest Assertions: The search results page is displayed, showing listings containing the keyword \"bike\" in the title or description. \n\n4. Verify the total number of listings found is displayed. \nTest Assertions: The total number of listings found is 2562 on the results page \n\n5. Sort the search results by \"Lower price first\" \nTest Assertions: The listings are reordered, with the lowest-priced items appearing at the top. \n\n6. Verify that each listing shows a title, thumbnail image, price, location, and date posted. \nTest Assertions: All listings contain these details in the grid view. \n\n",
-    "website": "http://www.vtaas-benchmark.com:9980/",
-    "task_id": "classifieds_tc_1"
+    "website": "http://www.vtaas-benchmark.com:9999/",
+    "task_id": "classifieds_tc-1-p"
   },
   {
     "confirmed_task": "1. Start on the Homepage: http://www.vtaas-benchmark.com:9980/  \nTest Assertions: The homepage is displayed with the search field and category dropdown visible. \n\n2. Enter \"speaker\" in the Keyword search field. \nTest Assertions: The keyword \"speaker\" is entered in the search field. \n\n3. Select \"Musical instruments\" from the Category dropdown. \nTest Assertions: The category \"Musical instruments\" is selected from the dropdown menu. \n\n4. Click on the \"Search\" button. \nTest Assertions: The search results page is displayed, showing listings that match both the keyword \"speaker\" and the \"Musical instruments\" category. \n\n5. Enter $200 in the Minimum Price field and $500 in the Maximum Price field. \nTest Assertions: The price range $200-$500 is entered in the price filter fields. \n\n6. Click on the \"Apply\" button to filter results by price. \nTest Assertions: The search results are filtered to show only listings with prices between $200 and $500. \n\n7. Verify that the filtered listings match the selected keyword, category, and price range. \nTest Assertions: Only listings with prices within the specified range and matching the keyword and category are displayed. \n\n",
-    "website": "http://www.vtaas-benchmark.com:9980/",
-    "task_id": "classifieds_tc_2"
+    "website": "http://www.vtaas-benchmark.com:9999/",
+    "task_id": "classifieds_tc-2-p"
   },
   {
     "confirmed_task": "1. Start on the Homepage: http://www.vtaas-benchmark.com:9980/  \nTest Assertions: Home page OsClass loads with search bar, category dropdown, and \"Login\" option visible \n\n2. Click \"Login\" button \nTest Assertions: Login page appears with email and password fields \n\n3. Enter email \"blake.sullivan@gmail.com\" and password \"Password.123\", check \"Remember me\", click \"Log in\" \nTest Assertions: User is logged in, homepage reloads with \"My account\" and \"Logout\" options visible \n\n4. Enter \"camera\" in keyword field, select \"Photo + video\" category, click \"Search\" \nTest Assertions: Search results page loads with camera listings \n\n5. Choose \"Rochester (Pennsylvania)\" from location dropdown, click \"Apply\" \nTest Assertions: Search results update to show camera listings in Rochester, Pennsylvania \n\n6. Click on \"Camera - Revere 8 mm\" listing on the top of the list \nTest Assertions: Detailed listing page opens showing item specifics, price ($20.00), and seller information \n\n7. Scroll to comment section, enter title \"Nice camera\" and comment \"Nice product\", click \"Send\" \nTest Assertions: Comment submission successful, confirmation message appears \n\n8. Look for comment approval notification \nTest Assertions: Green notification bar appears stating \"Your comment has been approved\" \n\n9. Scroll through listing page to check if your comment is visible \nTest Assertions: A comment \"Nice camera by Blake Sullivan\" is visible \n\n10. Delete the comment \"Nice camera by Blake Sullivant\" \nTest Assertions: Comment list is empty \n\n",
-    "website": "http://www.vtaas-benchmark.com:9980/",
-    "task_id": "classifieds_tc_3"
+    "website": "http://www.vtaas-benchmark.com:9999/",
+    "task_id": "classifieds_tc-3-p"
   },
   {
     "confirmed_task": "1. Start on the Homepage: http://www.vtaas-benchmark.com:9980/  \nTest Assertions: Home page OsClass loads with search bar, category dropdown, and \"Login\" option visible \n\n2. Click \"Login\" button \nTest Assertions: Login page appears with email and password fields \n\n3. Enter email \"blake.sullivan@gmail.com\" and password \"Password.123\", check \"Remember me\", click \"Log in\" \nTest Assertions: User is logged in, homepage reloads with \"My account\" and \"Logout\" options visible \n\n4. Enter \"camera\" in keyword field, select \"Photo + video\" category, then click \"Search\" \nTest Assertions: Search results page loads with Photo + video listings \n\n5. Enter \"Falls Church\" in City field, then click \"Apply\" \nTest Assertions: Search results page loads with Photo + video Falls Church listings \n\n6. Click on \"Nikon N50 Camera\" in the listing  \nTest Assertions: Detailed listing page opens showing item specifics, price ($30.00), and seller information \n\n7. Scroll to comment section, enter title \"Nice camera\" and comment \"Nice product\", click \"Send\" \nTest Assertions: Green notification bar appears stating \"Your comment has been approved\" \n\n8. Scroll through listing page to check if your comment is visible \nTest Assertions: A comment \"Nice camera by Blake Sullivan\" is visible \n\n9. Delete the comment \"Nice camera by Blake Sullivant\" \nTest Assertions: Comment list is empty \n\n",
-    "website": "http://www.vtaas-benchmark.com:9980/",
-    "task_id": "classifieds_tc_4"
+    "website": "http://www.vtaas-benchmark.com:9999/",
+    "task_id": "classifieds_tc-4-p"
   },
   {
     "confirmed_task": "1. Start on the Homepage: http://www.vtaas-benchmark.com:9980/  \nTest Assertions: Home page OsClass loads with search bar, category dropdown, and \"Login\" option visible \n\n2. Click \"Login\" button \nTest Assertions: Login page appears with email and password fields \n\n3. Enter email \"blake.sullivan@gmail.com\" and password \"Password.123\", then click \"Log in\" \nTest Assertions: User is logged in, homepage reloads with \"My account\" and \"Logout\" options visible \n\n4. Click \"Publish Ad\" \nTest Assertions: The “Publish a listing” page appears. \n\n5. Select \"Bikes\" in the Caterory dropdown. \nTest Assertions: Bikes category is selected. \n\n6. Enter \"Motobecane all Carbon Fiber Shimano GRX equipped gravel bike\" in the Title field \nTest Assertions:  \n\n7. Enter \"Selling my gorgeous Motobecane Carbon Fiber gravel bike equipped with 1 x 11 Shimano GRX gravel group.\" in the Description field \nTest Assertions:  \n\n8. Set price at 1,495.00 \nTest Assertions: The price is visible at 1,495.00\n \n\n9. Select \"California\" in the Region dropdown \nTest Assertions: California is selected as region \n\n10. Select \"San Francisco\" in the City dropdown \nTest Assertions: San Francisco is selected as city \n\n11. Click on the \"Submit\" button \nTest Assertions: Green notification bar appears stating \"Your listing has been published\" and the new add is visible with two buttons \"Edit item\" and \"Delete\" \n\n12. Click on the \"Delete\" button visible on the add \nTest Assertions: A pop-up window appears  \n\n13. Click on the \"OK\" button in the pop-up \nTest Assertions: Green notification bar appears stating \"Your listing has been published\" and \"My listings\" page is displayed without the deleted add. \n\n",
-    "website": "http://www.vtaas-benchmark.com:9980/",
-    "task_id": "classifieds_tc_5"
+    "website": "http://www.vtaas-benchmark.com:9999/",
+    "task_id": "classifieds_tc-5-p"
   },
   {
     "confirmed_task": "1. Start on the Homepage: http://www.vtaas-benchmark.com:9980/  \nTest Assertions: Home page OsClass loads with search bar, category dropdown, and \"Login\" option visible \n\n2. Click \"Login\" button \nTest Assertions: Login page appears with email and password fields \n\n3. Enter email \"blake.sullivan@gmail.com\" and password \"Password.123\", then click \"Log in\" \nTest Assertions: User is logged in, homepage reloads with \"My account\" and \"Logout\" options visible \n\n4. Click \"Publish Ad\" \nTest Assertions: The “Publish a listing” page appears. \n\n5. Select \"Bikes\" in the Caterory dropdonw. \nTest Assertions: Bikes category is selected. \n\n6. Enter \"Motobecane all Carbon Fiber Shimano GRX equipped gravel bike\" in the Title field \nTest Assertions:  \n\n7. Enter \"Selling my gorgeous Motobecane Carbon Fiber gravel bike equipped with 1 x 11 Shimano GRX gravel group.\" in the Description field \nTest Assertions:  \n\n8. Click on \"Click or Drop for upload images\" button, then upload the picture given in the next step \nTest Assertions: The loaded picture is visible \n\n9. Select \"California\" in the Region dropdown \nTest Assertions: California is selected as region \n\n10. Select \"San Francisco\" in the City dropdown \nTest Assertions: San Francisco is selected as city \n\n11. Click on the \"Submit\" button \nTest Assertions: Green notification bar appears stating \"Your listing has been published\" and the new add is visible with two buttons \"Edit item\" and \"Delete\" \n\n12. Click on the \"Delete\" button visible on the add \nTest Assertions: A pop-up window appears  \n\n13. Click on the \"OK\" button in the pop-up \nTest Assertions: Green notification bar appears stating \"Your listing has been published\" and \"My listings\" page is displayed without the deleted add. \n\n",
-    "website": "http://www.vtaas-benchmark.com:9980/",
-    "task_id": "classifieds_tc_6"
+    "website": "http://www.vtaas-benchmark.com:9999/",
+    "task_id": "classifieds_tc-6-p"
   },
   {
     "confirmed_task": "1. Open the webpage  http://www.vtaas-benchmark.com:9980/ on a half screen \nTest Assertions:  \n\n2. Login with valid credentials \"blake.sullivan@gmail.com\" / \"Password.123\" \nTest Assertions: “My account” and ‘Logout’ appear at the top of the screen. \n\n3. Enter \"toyota\" in the Keyword field the click on \"Search\" button \nTest Assertions: Results are displayed in a list \n\n4. Sort by higher price first in the \"Sort by:\" drop-down menu\n \nTest Assertions: The list is ordered by advertised price: most expensive first.  \n\n5. Observe first element \nTest Assertions: Title of the item should be displayed in blue. Price with 2 decimals should be displayed by showing US dollars symbol. 100 caracters of the descirpion should be displayed terminating with … \n\n6. Click on the title of the first element \nTest Assertions: The page should contain the title in the top. Then yello box should contain price aith currency USD dollars displayed\nFileds published date should be populated (date less or equal to today) Location should be displayed following the template City­, State, United States \nDescription is present\nContact seller button is displayed\nShare button is displayed \n\n7. Click on the small icon image of the right \nTest Assertions: The ad image is displayd full screen.  \n\n8. click on the browser's back arrow to exit the image \nTest Assertions: Item description page is available. Title is same as previous \n\n9. Click on contact seller \nTest Assertions: Contact publisher is shown mail and name \n\n10. Click on share \nTest Assertions: Formulary Send to a friend is displayed \n\n11. Logout \nTest Assertions:  \n\n",
-    "website": "http://www.vtaas-benchmark.com:9980/",
-    "task_id": "classifieds_tc_7"
+    "website": "http://www.vtaas-benchmark.com:9999/",
+    "task_id": "classifieds_tc-7-p"
   },
   {
     "confirmed_task": "1. Open the webpage  http://www.vtaas-benchmark.com:9980/ on full screen \nTest Assertions:  \n\n2. Login with valid credentials \"blake.sullivan@gmail.com\" / \"Password.123\" \nTest Assertions:  \n\n3. Search any category (ex Music Instruments) \nTest Assertions: In listing sections the results should be displayed in a list by default. Sorted by Newly listed.\nOn the left part search criteria should remain displayed. Title of the page is The category \n\n4. In criteria choose a US City (ex city from first element) and Apply \nTest Assertions: Results are displayed in a list, title is Category name + US State \n\n5. Logout \nTest Assertions:  \n\n",
-    "website": "http://www.vtaas-benchmark.com:9980/",
-    "task_id": "classifieds_tc_8"
+    "website": "http://www.vtaas-benchmark.com:9999/",
+    "task_id": "classifieds_tc-8-p"
   },
   {
     "confirmed_task": "1. Open the webpage  http://www.vtaas-benchmark.com:9980/ on full screen \nTest Assertions:  \n\n2. Login with valid credentials \"blake.sullivan@gmail.com\" / \"Password.123\" \nTest Assertions:  \n\n3. Search any category (ex Boats) \nTest Assertions: In listing sections the results should be displayed in a list by default. Sorted by Newly listed.\nOn the left part search criteria are displayed. Title of the page is the selected category \n\n4. In sort by click by other than Newly first (highest or lowest price) \nTest Assertions: Results are displayed in a list \n\n5. Set minimum price to $1 and apply  \nTest Assertions: Results are displayed according the the sorted by prevousely selected (highest or lowest price).  \n\n",
-    "website": "http://www.vtaas-benchmark.com:9980/",
-    "task_id": "classifieds_tc_9"
+    "website": "http://www.vtaas-benchmark.com:9999/",
+    "task_id": "classifieds_tc-9-p"
   },
   {
     "confirmed_task": "1. Open the webpage  http://www.vtaas-benchmark.com:9980/ \nTest Assertions:  \n\n2. Login with valid credentials \"blake.sullivan@gmail.com\" / \"Password.123\" \nTest Assertions:  \n\n3. Click on My account \nTest Assertions: My listings are displayed \n\n4. Edit first item by changing its description and save (Update button) \nTest Assertions: Itm page with green military color line displays' Great! We've just updated your listing' \n\n5. Scroll down in description and verify the change \nTest Assertions: The description is updated with i've modified you. \n\n6. Go to Edit item and remove the change in description and save \nTest Assertions: Original description is available \n\n7. Logout \nTest Assertions:  \n\n",
-    "website": "http://www.vtaas-benchmark.com:9980/",
-    "task_id": "classifieds_tc_10"
+    "website": "http://www.vtaas-benchmark.com:9999/",
+    "task_id": "classifieds_tc-10-p"
   },
   {
     "confirmed_task": "1. Go to \"http://www.vtaas-benchmark.com:9980/\" \nTest Assertions: The OsClass home page appears \n\n2. Select the last proposal from the search category drop-down menu, then launch the search. \nTest Assertions: The page for the chosen category appears with all the ads in \"List\" view. \n\n3. Open a new Chrome browser page \nTest Assertions: A Chrome browser page opens \n\n4. Go to \"http://www.vtaas-benchmark.com:9980/\" \nTest Assertions: The OsClass home page appears \n\n5. In the \"All categories\" field, select the icon corresponding to the last proposal in the search category drop-down menu. \nTest Assertions: The page that appears is identical to that of the previous search. \n\n",
-    "website": "http://www.vtaas-benchmark.com:9980/",
-    "task_id": "classifieds_tc_11"
+    "website": "http://www.vtaas-benchmark.com:9999/",
+    "task_id": "classifieds_tc-11-p"
   },
   {
-    "confirmed_task": "1. Go to \"http://www.vtaas-benchmark.com:9980/\" \nTest Assertions: The OsClass home page appears \n\n2. Select the first ad in the top right-hand corner of the \"Latest listings\" category \nTest Assertions: The selected product appears with the same title and price. \n\n3. Open a new Chrome browser page \nTest Assertions: A Chrome browser page opens \n\n4. 4 \nTest Assertions: The OsClass home page appears \n\n5. In the \"Keyword\" field, enter the title of the ad displayed on the other open page, then launch the search. \nTest Assertions: A page appears with all ads in \"List\" view \n\n6. Apply a filter with a minimum and maximum price equal to the price of the ad displayed on the other open page. \nTest Assertions: The ad displayed on the other open page is in the updated listing \n\n",
-    "website": "http://www.vtaas-benchmark.com:9980/",
-    "task_id": "classifieds_tc_12"
+    "confirmed_task": "1. Go to \"http://www.vtaas-benchmark.com:9980/\" \nTest Assertions: The OsClass home page appears \n\n2. Select the first ad in the top right-hand corner of the \"Latest listings\" category \nTest Assertions: The selected product appears with the same title and price. \n\n3. Open a new Chrome browser page \nTest Assertions: A Chrome browser page opens \n\n4. Go to \"http://www.vtaas-benchmark.com:9980/\" \nTest Assertions: The OsClass home page appears \n\n5. In the \"Keyword\" field, enter the title of the ad displayed on the other open page, then launch the search. \nTest Assertions: A page appears with all ads in \"List\" view \n\n6. Apply a filter with a minimum and maximum price equal to the price of the ad displayed on the other open page. \nTest Assertions: The ad displayed on the other open page is in the updated listing \n\n",
+    "website": "http://www.vtaas-benchmark.com:9999/",
+    "task_id": "classifieds_tc-12-p"
   },
   {
     "confirmed_task": "1. Go to \"http://www.vtaas-benchmark.com:9980/\" \nTest Assertions: The OsClass home page appears \n\n2. Select the first proposal in the \"All locations\" field \nTest Assertions: The page for the chosen location appears with all the ads in \"List\" view. \n\n3. Select the first ad \nTest Assertions: The ad page appears \n\n4. Click on \"Share \nTest Assertions: The \"Send to a friend\" page appears \n\n5. Click on \"Send \nTest Assertions: An error message appears, listing all non-optional fields \n\n6. Complete the fields with :\nBlake for Your name field\nblake.sullivan@gmail.com for Your e-mail field\nJoe for Friend's name\nJoe.Titi@ for Friend's email address\nA gift idea? for The message field\nthen click on \"Send\". \nTest Assertions: An error message stating that the friend's e-mail address is invalid appears \n\n7. Replace friend's email address with \"blake.sullivan@gmail.com\" and Send \nTest Assertions: A green message \"We just sent your message to Joe\" is displayed \n\n",
-    "website": "http://www.vtaas-benchmark.com:9980/",
-    "task_id": "classifieds_tc_13"
+    "website": "http://www.vtaas-benchmark.com:9999/",
+    "task_id": "classifieds_tc-13-p"
   },
   {
     "confirmed_task": "1. Go to \"http://www.vtaas-benchmark.com:9980/\" \nTest Assertions: The OsClass home page appears \n\n2. Select the cheapest ad in the \"Latest listings\" category \nTest Assertions: The selected product appears with the same title and price. \n\n3. Click on \"Share\". \nTest Assertions: The page \"Send to a friend\" is dispayed \n\n",
-    "website": "http://www.vtaas-benchmark.com:9980/",
-    "task_id": "classifieds_tc_14"
+    "website": "http://www.vtaas-benchmark.com:9999/",
+    "task_id": "classifieds_tc-14-p"
   },
   {
     "confirmed_task": "1. Go to \"http://www.vtaas-benchmark.com:9980/\" \nTest Assertions: The OsClass home page appears \n\n2. Click on \"Publish Ad \nTest Assertions: The \"Publish a listing\" page appears \n\n3. Click on \"Publish\" button \nTest Assertions: An error message appears with all the following fields:\n- Title\n- Description\n- Region\n- Email address\n- Category \n\n4. Select the first proposal from the drop-down menu in the \"Category\" field \nTest Assertions: The error message no longer mentions the category \n\n5. Enter the letter R in the \"Title\" field \nTest Assertions: The error message only mentions that a minimum of 5 characters is required for the title. \n\n6. Complete the content of the \"Title\" field with \"oman statue\". \nTest Assertions: The \"Title\" field is identical to \"Roman statue\" and the error message no longer mentions the title. \n\n7. Enter the letter V in the \"Description\" field \nTest Assertions: The error message only mentions that at least 10 characters are required for the description. \n\n8. Write \"Very beautiful statue\" in the \"Description\" field \nTest Assertions: The error message no longer mentions the description \n\n9. Select the second proposal from the drop-down menu in the \"Region\" field \nTest Assertions: Error message no longer mentions location \n\n10. Write \"blake.sullivan@gmail.com\" for the email address \nTest Assertions: Error message disappears \n\n11. Publish \nTest Assertions: An error message asks you to choose a city \n\n12. Select the 3rd city from the drop-down menu and publish. \nTest Assertions: A message appears stating that the user is already known \n\n13. Enter \"blake.sullivan@gmail.com\" in the E-mail field and \"Password.123\" as the password, then attempt to connect. \nTest Assertions: The \"Publish a listing\" page reappears, already completed with the information entered previously, except for the email address. \n\n14. Publish \nTest Assertions: The ad appears in the listing \n\n15. Delete ad \nTest Assertions: A warning popup appears \n\n16. Confirm deletion \nTest Assertions: Ad disappears from listing \n\n",
-    "website": "http://www.vtaas-benchmark.com:9980/",
-    "task_id": "classifieds_tc_15"
+    "website": "http://www.vtaas-benchmark.com:9999/",
+    "task_id": "classifieds_tc-15-p"
   }
 ]
